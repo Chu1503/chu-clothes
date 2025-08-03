@@ -38,7 +38,7 @@ export const CategoryCard = ({ category }: CategoryCardProps) => {
             navigate(`/category/${category.id}`);
           }}
         >
-          RATE STYLES
+          RATE
         </Button>
       </div>
     </Card>

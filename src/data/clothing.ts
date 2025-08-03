@@ -1,4 +1,3 @@
-// Import all clothing images
 import pants1 from "@/assets/pants-1.png";
 import pants2 from "@/assets/pants-2.png";
 import pants3 from "@/assets/pants-3.png";
@@ -7,6 +6,7 @@ import pants5 from "@/assets/pants-5.png";
 import pants6 from "@/assets/pants-6.png";
 import pants7 from "@/assets/pants-7.png";
 import pants8 from "@/assets/pants-8.png";
+import pants9 from "@/assets/pants-9.png";
 import polo1 from "@/assets/polo-1.png";
 import polo2 from "@/assets/polo-2.png";
 import polo3 from "@/assets/polo-3.png";
@@ -31,6 +31,10 @@ import hoodie1 from "@/assets/hoodie-1.png";
 import hoodie2 from "@/assets/hoodie-2.png";
 import sweatshirt1 from "@/assets/sweatshirt-1.png";
 import sweatshirt2 from "@/assets/sweatshirt-2.png";
+import sweatshirt3 from "@/assets/sweatshirt-3.png";
+import sweatshirt4 from "@/assets/sweatshirt-4.png";
+import sweatshirt5 from "@/assets/sweatshirt-5.png";
+import sweatshirt6 from "@/assets/sweatshirt-6.png";
 
 export type VoteType = 'good' | 'mid' | 'bad' | null;
 
@@ -54,13 +58,13 @@ export const clothingCategories: ClothingCategory[] = [
     items: [
       { id: 'pants-1', name: 'Bonkers Corner | Dark Gray Cargos', image: pants1, vote: null },
 { id: 'pants-2', name: 'Peter England | Dark Gray Chinos', image: pants2, vote: null },
-{ id: 'pants-3', name: 'John Players | Olive Green Drawstring Chinos', image: pants3, vote: null },
-{ id: 'pants-4', name: 'Jack & Jones | Beige Chinos', image: pants4, vote: null },
-{ id: 'pants-5', name: 'H&M | Beige Drawstring Cargos', image: pants5, vote: null },
-{ id: 'pants-6', name: 'Pepe Jeans | Dark Blue Jeans', image: pants6, vote: null },
-{ id: 'pants-7', name: 'SF Jeans | Blue Jeans', image: pants7, vote: null },
-{ id: 'pants-8', name: 'Levis | Blue Jeans', image: pants8, vote: null },
-
+{ id: 'pants-3', name: 'Decathlon | Dark Gray Pants', image: pants2, vote: null },
+{ id: 'pants-4', name: 'John Players | Olive Green Drawstring Chinos', image: pants3, vote: null },
+{ id: 'pants-5', name: 'Jack & Jones | Beige Chinos', image: pants4, vote: null },
+{ id: 'pants-6', name: 'H&M | Beige Drawstring Cargos', image: pants5, vote: null },
+{ id: 'pants-7', name: 'Pepe Jeans | Dark Blue Jeans', image: pants6, vote: null },
+{ id: 'pants-8', name: 'SF Jeans | Blue Jeans', image: pants7, vote: null },
+{ id: 'pants-9', name: 'Levis | Blue Jeans', image: pants8, vote: null },
     ]
   },
   {
@@ -114,8 +118,12 @@ export const clothingCategories: ClothingCategory[] = [
     id: 'sweatshirts',
     name: 'SWEATSHIRTS',
     items: [
-      { id: 'sweatshirt-1', name: 'Navy Sweatshirt', image: sweatshirt1, vote: null },
-      { id: 'sweatshirt-2', name: 'Grey Sweatshirt', image: sweatshirt2, vote: null },
+      { id: 'sweatshirt-1', name: 'Westside | Olive Green', image: sweatshirt1, vote: null },
+      { id: 'sweatshirt-2', name: 'Marks & Spencer | Black & Gray', image: sweatshirt2, vote: null },
+      { id: 'sweatshirt-3', name: 'Marks & Spencer | Light Blue', image: sweatshirt3, vote: null },
+      { id: 'sweatshirt-4', name: 'H&M | Violet', image: sweatshirt4, vote: null },
+      { id: 'sweatshirt-5', name: 'The Souled Store | Organge Red', image: sweatshirt5, vote: null },
+      { id: 'sweatshirt-6', name: 'Wrogn | Black', image: sweatshirt6, vote: null },
     ]
   },
 ];
