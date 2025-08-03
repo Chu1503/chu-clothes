@@ -1,185 +1,141 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { ClothingItem, VoteType, clothingCategories } from "@/data/clothing";
-import { ArrowLeft, ChevronRight, Download } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { useVotes } from "@/contexts/VoteContext";
-import { useToast } from "@/hooks/use-toast";
-import { cn } from "@/lib/utils";
+"use client";
 
-interface ClothingGridProps {
-  categoryName: string;
-  categoryId: string;
-  items: ClothingItem[];
+import { useState, useEffect } from "react";
+import { Minus, Plus, RefreshCcw, X } from "lucide-react";
+
+const MAX_SCALE = 3;
+const MIN_SCALE = 1;
+const ZOOM_STEP = 0.25;
+
+interface ModalProps {
+  src: string;
+  alt: string;
+  onClose: () => void;
 }
 
-export const ClothingGrid = ({ categoryName, categoryId, items }: ClothingGridProps) => {
-  const { votes, setVote, generateCombinedPDF } = useVotes();
-  const navigate = useNavigate();
-  const { toast } = useToast();
+const ImageModal: React.FC<ModalProps> = ({ src, alt, onClose }) => {
+  const [scale, setScale] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [lastMouse, setLastMouse] = useState({ x: 0, y: 0 });
 
-  const handleVote = (itemId: string, vote: VoteType) => {
-    setVote(itemId, votes[itemId] === vote ? null : vote);
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [onClose]);
+
+  const handleZoomIn = () => {
+    setScale((prev) => Math.min(MAX_SCALE, prev + ZOOM_STEP));
   };
 
-  const getVoteBackgroundColor = (vote: VoteType) => {
-    switch (vote) {
-      case 'good': return 'bg-vote-good';
-      case 'mid': return 'bg-vote-mid';
-      case 'bad': return 'bg-vote-bad';
-      default: return 'bg-transparent';
-    }
+  const handleZoomOut = () => {
+    if (scale <= MIN_SCALE) return;
+    setScale((prev) => {
+      const newScale = Math.max(MIN_SCALE, prev - ZOOM_STEP);
+      if (newScale === 1) {
+        setPosition({ x: 0, y: 0 });
+      }
+      return newScale;
+    });
   };
 
-  const handleNext = () => {
-    const currentIndex = clothingCategories.findIndex(cat => cat.id === categoryId);
-    const nextIndex = currentIndex + 1;
-    if (nextIndex < clothingCategories.length) {
-      navigate(`/category/${clothingCategories[nextIndex].id}`);
-    } else {
-      handleGeneratePDF();
-    }
+  const handleResetZoom = () => {
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
   };
 
-  const handleGeneratePDF = async () => {
-    try {
-      await generateCombinedPDF();
-      toast({
-        title: "PDF Generated!",
-        description: "Complete style scorecard has been downloaded.",
-      });
-      navigate('/');
-    } catch (error) {
-      toast({
-        title: "Error", 
-        description: "Failed to generate PDF. Please try again.",
-        variant: "destructive",
-      });
-    }
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (scale === 1) return;
+    setIsDragging(true);
+    setLastMouse({ x: e.clientX, y: e.clientY });
   };
 
-  const votedItems = items.filter(item => votes[item.id] !== null && votes[item.id] !== undefined).length;
-  const currentIndex = clothingCategories.findIndex(cat => cat.id === categoryId);
-  const isLastCategory = currentIndex === clothingCategories.length - 1;
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    const dx = e.clientX - lastMouse.x;
+    const dy = e.clientY - lastMouse.y;
+    setPosition((prev) => ({ x: prev.x + dx, y: prev.y + dy }));
+    setLastMouse({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/30 p-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <Button
-              onClick={() => navigate('/')}
-              className="h-10 w-10 hover:bg-accent flex items-center justify-center"
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
-            <div>
-              <h1 className="text-4xl font-bold text-foreground tracking-wide">{categoryName}</h1>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <div className="text-right">
-              <p className="text-sm text-muted-foreground">
-                Progress: {votedItems}/{items.length}
-              </p>
-              <div className="w-32 h-2 bg-muted rounded-full mt-1">
-                <div
-                  className="h-full bg-gradient-hero rounded-full transition-all duration-300"
-                  style={{ width: `${(votedItems / items.length) * 100}%` }}
-                />
-              </div>
-            </div>
-
-            <Button
-              onClick={isLastCategory ? handleGeneratePDF : handleNext}
-              className="h-11 rounded-md px-8 gap-2 bg-gradient-hero text-primary-foreground hover:opacity-90 shadow-elegant flex items-center"
-            >
-              {isLastCategory ? (
-                <>
-                  <Download className="h-4 w-4" />
-                  SAVE PDF
-                </>
-              ) : (
-                <>
-                  NEXT
-                  <ChevronRight className="h-4 w-4" />
-                </>
-              )}
-            </Button>
-          </div>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+      onClick={onClose}
+      style={{ cursor: "zoom-out" }}
+    >
+      <div
+        className="relative"
+        onClick={(e) => e.stopPropagation()}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        style={{
+          cursor: scale > 1 ? (isDragging ? "grabbing" : "grab") : "zoom-in",
+        }}
+      >
+        <div className="absolute top-2 right-2 flex gap-2 z-10">
+          <button
+            className="bg-black/60 rounded-full text-white p-2 flex items-center justify-center"
+            onClick={handleResetZoom}
+            aria-label="Reset zoom"
+            tabIndex={0}
+          >
+            <RefreshCcw className="w-5 h-5" />
+          </button>
+          <button
+            className="bg-black/60 rounded-full text-white p-2 flex items-center justify-center"
+            onClick={handleZoomOut}
+            aria-label="Zoom out"
+            tabIndex={0}
+          >
+            <Minus className="w-5 h-5" />
+          </button>
+          <button
+            className="bg-black/60 rounded-full text-white p-2 flex items-center justify-center"
+            onClick={handleZoomIn}
+            aria-label="Zoom in"
+            tabIndex={0}
+          >
+            <Plus className="w-5 h-5" />
+          </button>
+          <button
+            className="bg-black/60 rounded-full text-white p-2 flex items-center justify-center"
+            onClick={onClose}
+            aria-label="Close"
+            tabIndex={0}
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
-        {/* Clothing Grid */}
-        <div id="clothing-grid" className="bg-card p-8 rounded-lg shadow-card">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {items.map((item) => {
-              const vote = votes[item.id];
-              const isVoted = vote !== null && vote !== undefined;
-
-              return (
-                <Card
-                  key={item.id}
-                  className={cn(
-                    "p-6 transition-all duration-300 hover:shadow-elegant border-2",
-                    vote === 'good'
-                      ? "border-vote-good"
-                      : vote === 'mid'
-                      ? "border-vote-mid"
-                      : vote === 'bad'
-                      ? "border-vote-bad"
-                      : "border-border"
-                  )}
-                >
-                  <div className="space-y-4">
-                    <div
-                      className={cn(
-                        "aspect-[4/5] rounded-lg overflow-hidden flex items-center justify-center transition-colors duration-300",
-                        getVoteBackgroundColor(vote)
-                      )}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <div className="text-center">
-                      <h3 className="font-semibold text-lg text-foreground mb-4">
-                        {item.name}
-                      </h3>
-
-                      <div className="flex gap-2 justify-center">
-                        {(['good', 'mid', 'bad'] as VoteType[]).map((v) => (
-                          <Button
-                            key={v}
-                            onClick={() => handleVote(item.id, v)}
-                            className={cn(
-                              "h-12 px-6 text-xs font-semibold tracking-wide flex-1 border-2 transition-all duration-200",
-                              vote === v
-                                ? v === 'good'
-                                  ? "border-vote-good bg-vote-good text-vote-good-foreground"
-                                  : v === 'mid'
-                                  ? "border-vote-mid bg-vote-mid text-vote-mid-foreground"
-                                  : "border-vote-bad bg-vote-bad text-vote-bad-foreground"
-                                : "border-border bg-card text-card-foreground hover:bg-accent"
-                            )}
-                          >
-                            {v.toUpperCase()}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
+        <img
+          src={src}
+          alt={alt}
+          className="max-h-[80vh] max-w-[90vw] object-contain select-none"
+          style={{
+            transform: `scale(${scale}) translate(${position.x / scale}px, ${
+              position.y / scale
+            }px)`,
+            transition: isDragging ? "none" : "transform 0.2s",
+            cursor: scale > 1 ? (isDragging ? "grabbing" : "grab") : "zoom-in",
+          }}
+          draggable={false}
+        />
       </div>
     </div>
   );
 };
+
+export default ImageModal;
