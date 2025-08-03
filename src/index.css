@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 252 249 255;
+    --foreground: 230 13% 9%;
+
+    --card: 255 255 255;
+    --card-foreground: 230 13% 9%;
+
+    --popover: 255 255 255;
+    --popover-foreground: 230 13% 9%;
+
+    --primary: 230 30% 13%;
+    --primary-foreground: 252 249 255;
+
+    --secondary: 240 9% 89%;
+    --secondary-foreground: 230 20% 20%;
+
+    --muted: 240 9% 89%;
+    --muted-foreground: 230 13% 40%;
+
+    --accent: 240 9% 89%;
+    --accent-foreground: 230 20% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 9% 89%;
+    --input: 240 9% 89%;
+    --ring: 230 30% 13%;
+
+    /* Voting colors */
+    --vote-good: 142 76% 36%;
+    --vote-good-foreground: 255 255 255;
+    --vote-mid: 40 180% 40%;
+    --vote-mid-foreground: 230 13% 9%;
+    --vote-bad: 0 72% 51%;
+    --vote-bad-foreground: 255 255 255;
+
+    /* Fashion brand gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(230, 30%, 13%), hsl(240, 20%, 25%));
+    --gradient-card: linear-gradient(180deg, hsl(255, 255, 255), hsl(240, 9%, 97%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(230, 30%, 13% / 0.1);
+    --shadow-card: 0 4px 20px hsl(230, 30%, 13% / 0.08);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 230 30% 5%;
+    --foreground: 252 249 255;
+
+    --card: 230 25% 8%;
+    --card-foreground: 252 249 255;
+
+    --popover: 230 25% 8%;
+    --popover-foreground: 252 249 255;
+
+    --primary: 252 249 255;
+    --primary-foreground: 230 30% 13%;
+
+    --secondary: 240 15% 15%;
+    --secondary-foreground: 252 249 255;
+
+    --muted: 240 15% 15%;
+    --muted-foreground: 240 9% 65%;
+
+    --accent: 240 15% 15%;
+    --accent-foreground: 252 249 255;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 15% 15%;
+    --input: 240 15% 15%;
+    --ring: 252 249 255;
+
+    /* Fashion brand gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(230, 30%, 5%), hsl(240, 25%, 12%));
+    --gradient-card: linear-gradient(180deg, hsl(230, 25%, 8%), hsl(240, 20%, 10%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(0, 0%, 0% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0, 0%, 0% / 0.2);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
