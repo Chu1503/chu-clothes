@@ -27,7 +27,7 @@ export const CategoryCard = ({ category }: CategoryCardProps) => {
             {category.name}
           </h3>
           <p className="text-muted-foreground text-sm">
-            {category.items.length} items to review
+            {category.items.length} ITEMS
           </p>
         </div>
 
