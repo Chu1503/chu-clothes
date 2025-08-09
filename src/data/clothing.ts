@@ -7,6 +7,8 @@ import pants6 from "@/assets/pants-6.png";
 import pants7 from "@/assets/pants-7.png";
 import pants8 from "@/assets/pants-8.png";
 import pants9 from "@/assets/pants-9.png";
+
+
 import polo1 from "@/assets/polo-1.png";
 import polo2 from "@/assets/polo-2.png";
 import polo3 from "@/assets/polo-3.png";
@@ -23,12 +25,36 @@ import polo13 from "@/assets/polo-13.png";
 import polo14 from "@/assets/polo-14.png";
 import polo15 from "@/assets/polo-15.png";
 import polo16 from "@/assets/polo-16.png";
+
+
 import shirt1 from "@/assets/shirt-1.png";
 import shirt2 from "@/assets/shirt-2.png";
+import shirt3 from "@/assets/shirt-3.png";
+import shirt4 from "@/assets/shirt-4.png";
+import shirt5 from "@/assets/shirt-5.png";
+import shirt6 from "@/assets/shirt-6.png";
+import shirt7 from "@/assets/shirt-7.png";
+import shirt8 from "@/assets/shirt-8.png";
+import shirt9 from "@/assets/shirt-9.png";
+import shirt10 from "@/assets/shirt-10.png";
+import shirt11 from "@/assets/shirt-11.png";
+import shirt12 from "@/assets/shirt-12.png";
+import shirt13 from "@/assets/shirt-13.png";
+import shirt14 from "@/assets/shirt-14.png";
+import shirt15 from "@/assets/shirt-15.png";
+import shirt16 from "@/assets/shirt-16.png";
+import shirt17 from "@/assets/shirt-17.png";
+import shirt18 from "@/assets/shirt-18.png";
+
+
 import tshirt1 from "@/assets/tshirt-1.png";
 import tshirt2 from "@/assets/tshirt-2.png";
+
+
 import hoodie1 from "@/assets/hoodie-1.png";
 import hoodie2 from "@/assets/hoodie-2.png";
+
+
 import sweatshirt1 from "@/assets/sweatshirt-1.png";
 import sweatshirt2 from "@/assets/sweatshirt-2.png";
 import sweatshirt3 from "@/assets/sweatshirt-3.png";
@@ -58,13 +84,13 @@ export const clothingCategories: ClothingCategory[] = [
     items: [
       { id: 'pants-1', name: 'Bonkers Corner | Dark Gray Cargos', image: pants1, vote: null },
 { id: 'pants-2', name: 'Peter England | Dark Gray Chinos', image: pants2, vote: null },
-{ id: 'pants-3', name: 'Decathlon | Dark Gray Pants', image: pants2, vote: null },
-{ id: 'pants-4', name: 'John Players | Olive Green Drawstring Chinos', image: pants3, vote: null },
-{ id: 'pants-5', name: 'Jack & Jones | Beige Chinos', image: pants4, vote: null },
-{ id: 'pants-6', name: 'H&M | Beige Drawstring Cargos', image: pants5, vote: null },
-{ id: 'pants-7', name: 'Pepe Jeans | Dark Blue Jeans', image: pants6, vote: null },
-{ id: 'pants-8', name: 'SF Jeans | Blue Jeans', image: pants7, vote: null },
-{ id: 'pants-9', name: 'Levis | Blue Jeans', image: pants8, vote: null },
+{ id: 'pants-3', name: 'Decathlon | Dark Gray Pants', image: pants3, vote: null },
+{ id: 'pants-4', name: 'John Players | Olive Green Drawstring Chinos', image: pants4, vote: null },
+{ id: 'pants-5', name: 'Jack & Jones | Beige Chinos', image: pants5, vote: null },
+{ id: 'pants-6', name: 'H&M | Beige Drawstring Cargos', image: pants6, vote: null },
+{ id: 'pants-7', name: 'Pepe Jeans | Dark Blue Jeans', image: pants7, vote: null },
+{ id: 'pants-8', name: 'SF Jeans | Blue Jeans', image: pants8, vote: null },
+{ id: 'pants-9', name: 'Levis | Blue Jeans', image: pants9, vote: null },
     ]
   },
   {
@@ -94,9 +120,25 @@ export const clothingCategories: ClothingCategory[] = [
     id: 'shirts',
     name: 'SHIRTS',
     items: [
-      { id: 'shirt-1', name: 'White Dress Shirt', image: shirt1, vote: null },
-      { id: 'shirt-2', name: 'Light Blue Shirt', image: shirt2, vote: null },
-    ]
+      { id: 'shirt-1', name: 'H&M | Olive Green Corduroy', image: shirt1, vote: null },
+      { id: 'shirt-2', name: 'Pepe Jeans | Maroon', image: shirt2, vote: null },
+      { id: 'shirt-3', name: 'Allen Solly | Maroon', image: shirt3, vote: null },
+      { id: 'shirt-4', name: 'Westside | Olive Green', image: shirt4, vote: null },
+      { id: 'shirt-5', name: 'Van Heusen | Navy Blue', image: shirt5, vote: null },
+      { id: 'shirt-6', name: 'Bernardino | Navy Blue', image: shirt6, vote: null },
+      { id: 'shirt-7', name: 'Van Heusen | Off-White', image: shirt7, vote: null },
+      { id: 'shirt-8', name: 'Snitch | Red', image: shirt8, vote: null },
+      { id: 'shirt-9', name: 'Snitch | White & Black', image: shirt9, vote: null },
+      { id: 'shirt-10', name: 'Rare Rabbit | Navy Blue', image: shirt10, vote: null },
+      { id: 'shirt-11', name: 'Nuon | Blue & Red Stripes', image: shirt11, vote: null },
+      { id: 'shirt-12', name: 'Westside | Blue & Red Checked', image: shirt12, vote: null },
+      { id: 'shirt-13', name: 'Westside | Black', image: shirt13, vote: null },
+      { id: 'shirt-14', name: 'Ralph Lauren | Gray', image: shirt14, vote: null },
+      { id: 'shirt-15', name: 'Netplay | White', image: shirt15, vote: null },
+      { id: 'shirt-16', name: 'Cherokee | Olive Green', image: shirt16, vote: null },
+      { id: 'shirt-17', name: 'Bare Denim | Brown', image: shirt17, vote: null },
+      { id: 'shirt-18', name: 'Bare Denim | Blue Checked', image: shirt18, vote: null },
+    ]    
   },
   {
     id: 'tshirts',
