@@ -29,8 +29,6 @@ import polo13 from "@/assets/Polos/polo-13.png";
 import polo14 from "@/assets/Polos/polo-14.png";
 import polo15 from "@/assets/Polos/polo-15.png";
 import polo16 from "@/assets/Polos/polo-16.png";
-import polo17 from "@/assets/Polos/polo-17.png";
-
 
 import shirt1 from "@/assets/Shirts/shirt-1.png";
 import shirt2 from "@/assets/Shirts/shirt-2.png";
@@ -73,6 +71,7 @@ import tee17 from "@/assets/Tees/tee-17.png";
 import tee18 from "@/assets/Tees/tee-18.png";
 import tee19 from "@/assets/Tees/tee-19.png";
 import tee20 from "@/assets/Tees/tee-20.png";
+import tee21 from "@/assets/Tees/tee-21.png";
 
 
 import gtee1 from "@/assets/Graphic Tees/gtee-1.png";
@@ -97,6 +96,8 @@ import gtee19 from "@/assets/Graphic Tees/gtee-19.png";
 import gtee20 from "@/assets/Graphic Tees/gtee-20.png";
 import gtee21 from "@/assets/Graphic Tees/gtee-21.png";
 import gtee22 from "@/assets/Graphic Tees/gtee-22.png";
+import gtee23 from "@/assets/Graphic Tees/gtee-23.png";
+import gtee24 from "@/assets/Graphic Tees/gtee-24.png";
 
 
 import hoodie1 from "@/assets/Hoodies/hoodie-1.png";
@@ -115,6 +116,8 @@ import sweatshirt6 from "@/assets/Sweatshirts/sweatshirt-6.png";
 import sweatshirt7 from "@/assets/Sweatshirts/sweatshirt-7.png";
 import sweatshirt8 from "@/assets/Sweatshirts/sweatshirt-8.png";
 import sweatshirt9 from "@/assets/Sweatshirts/sweatshirt-9.png";
+import sweatshirt10 from "@/assets/Sweatshirts/sweatshirt-10.png";
+import sweatshirt11 from "@/assets/Sweatshirts/sweatshirt-11.png";
 
 
 import tracks1 from "@/assets/Tracks/tracks-1.png";
@@ -166,23 +169,22 @@ export const clothingCategories: ClothingCategory[] = [
     id: 'polos',
     name: 'POLOS',
     items: [
-      { id: 'polo-1', name: 'Peter England | Lilac Half Sleeve', image: polo1, vote: null },
-      { id: 'polo-2', name: 'Peter England | Dark Gray Half Sleeve', image: polo2, vote: null },
-      { id: 'polo-3', name: 'Levis | Maroon Half Sleeve', image: polo3, vote: null },
-      { id: 'polo-4', name: 'United Colors of Benetton | Beige & Blue Half Sleeve', image: polo4, vote: null },
-      { id: 'polo-5', name: 'Pepe Jeans | Dark Green Half Sleeve', image: polo5, vote: null },
-      { id: 'polo-6', name: 'Van Heusen | Violet Half Sleeve', image: polo6, vote: null },
-      { id: 'polo-7', name: 'Allen Solly | Red Half Sleeve', image: polo7, vote: null },
-      { id: 'polo-8', name: 'Netplay | Beige Half Sleeve Knitted', image: polo8, vote: null },
-      { id: 'polo-9', name: 'Netplay | Olive Green Half Sleeve Knitted', image: polo9, vote: null },
-      { id: 'polo-10', name: 'Westside | Black Half Sleeve Ribbed', image: polo10, vote: null },
-      { id: 'polo-11', name: 'Allen Solly | Black Half Sleeve', image: polo11, vote: null },
-      { id: 'polo-12', name: 'Superconcepts | Navy Blue Full Sleeve Ribbed', image: polo12, vote: null },
-      { id: 'polo-13', name: 'Tyre | Black & Beige Full Sleeve Tyre', image: polo13, vote: null },
-      { id: 'polo-14', name: 'NUS | Navy Blue Half Sleeve Jersey', image: polo14, vote: null },
-      { id: 'polo-15', name: 'India | Blue Half Sleeve Jersey', image: polo15, vote: null },
-      { id: 'polo-16', name: 'CSK | Yellow Half Sleeve Jersey', image: polo16, vote: null },
-      { id: 'polo-17', name: 'CSK | Yellow Half Sleeve Jersey', image: polo17, vote: null },
+      { id: 'polo-1', name: 'Peter England | Lilac', image: polo1, vote: null },
+      { id: 'polo-2', name: 'Levis | Maroon', image: polo2, vote: null },
+      { id: 'polo-3', name: 'Peter England | Dark Gray', image: polo3, vote: null },
+      { id: 'polo-4', name: 'Allen Solly | Red', image: polo4, vote: null },
+      { id: 'polo-5', name: 'Pepe Jeans | Dark Green', image: polo5, vote: null },
+      { id: 'polo-6', name: 'Allen Solly | Black', image: polo6, vote: null },
+      { id: 'polo-7', name: 'Netplay | Olive Green Knitted', image: polo7, vote: null },
+      { id: 'polo-8', name: 'Van Heusen | Violet', image: polo8, vote: null },
+      { id: 'polo-9', name: 'Netplay | Beige Knitted', image: polo9, vote: null },
+      { id: 'polo-10', name: 'India | Blue Jersey', image: polo10, vote: null },
+      { id: 'polo-11', name: 'NUS | Navy Blue Jersey ', image: polo11, vote: null },
+      { id: 'polo-12', name: 'CSK | Yellow Jersey', image: polo12, vote: null },
+      { id: 'polo-13', name: 'CSK | Yellow Match Jersey', image: polo13, vote: null },
+      { id: 'polo-14', name: 'Westside | Black Ribbed', image: polo14, vote: null },
+      { id: 'polo-15', name: 'RCB | Red & Black Match Jersey', image: polo15, vote: null },
+      { id: 'polo-16', name: 'United Colors of Benetton | Beige & Blue', image: polo16, vote: null },
     ]
   },
   {
@@ -214,54 +216,57 @@ export const clothingCategories: ClothingCategory[] = [
     id: 'tshirts',
     name: 'T SHIRTS',
     items: [
-      { id: 'tee-1', name: '', image: tee1, vote: null },
-      { id: 'tee-2', name: '', image: tee2, vote: null },
-      { id: 'tee-3', name: '', image: tee3, vote: null },
-      { id: 'tee-4', name: '', image: tee4, vote: null },
-      { id: 'tee-5', name: '', image: tee5, vote: null },
-      { id: 'tee-6', name: '', image: tee6, vote: null },
-      { id: 'tee-7', name: '', image: tee7, vote: null },
-      { id: 'tee-8', name: '', image: tee8, vote: null },
-      { id: 'tee-9', name: '', image: tee9, vote: null },
-      { id: 'tee-10', name: '', image: tee10, vote: null },
-      { id: 'tee-11', name: '', image: tee11, vote: null },
-      { id: 'tee-12', name: '', image: tee12, vote: null },
-      { id: 'tee-13', name: '', image: tee13, vote: null },
-      { id: 'tee-14', name: '', image: tee14, vote: null },
-      { id: 'tee-15', name: '', image: tee15, vote: null },
-      { id: 'tee-16', name: '', image: tee16, vote: null },
-      { id: 'tee-17', name: '', image: tee17, vote: null },
-      { id: 'tee-18', name: '', image: tee18, vote: null },
-      { id: 'tee-19', name: '', image: tee19, vote: null },
-      { id: 'tee-20', name: '', image: tee20, vote: null },
+      { id: 'tee-1', name: 'The Souled Store | Violet', image: tee1, vote: null },
+      { id: 'tee-2', name: 'Pantaloons | Gray', image: tee2, vote: null },
+      { id: 'tee-3', name: 'The Souled Store | Brown', image: tee3, vote: null },
+      { id: 'tee-4', name: 'Chiggu | Golden Brown', image: tee4, vote: null },
+      { id: 'tee-5', name: 'Calvin Klein | Pink', image: tee5, vote: null },
+      { id: 'tee-6', name: 'Westside | Pink', image: tee6, vote: null },
+      { id: 'tee-7', name: 'Westside | Light Green', image: tee7, vote: null },
+      { id: 'tee-8', name: 'H&M | Orange', image: tee8, vote: null },
+      { id: 'tee-9', name: 'The Souled Store | Green', image: tee9, vote: null },
+      { id: 'tee-10', name: 'Snitch | Black & Yellow', image: tee10, vote: null },
+      { id: 'tee-11', name: 'Champion | Gray', image: tee11, vote: null },
+      { id: 'tee-12', name: 'Pantaloons | Black & Brown', image: tee12, vote: null },
+      { id: 'tee-13', name: 'Fila | Blue', image: tee13, vote: null },
+      { id: 'tee-14', name: 'Pepe Jeans | Blue', image: tee14, vote: null },
+      { id: 'tee-15', name: 'GAP | Purple', image: tee15, vote: null },
+      { id: 'tee-16', name: 'Nike | Black', image: tee16, vote: null },
+      { id: 'tee-17', name: 'Adidas | Dark Green', image: tee17, vote: null },
+      { id: 'tee-18', name: 'Puma | Black', image: tee18, vote: null },
+      { id: 'tee-19', name: 'Decathlon | White', image: tee19, vote: null },
+      { id: 'tee-20', name: 'Style Union | Beige', image: tee20, vote: null },
+      { id: 'tee-21', name: 'IIT-M  | Gray', image: tee21, vote: null },
     ]
   },
   {
     id: 'graphictee',
     name: 'GRAPHIC TEES',
     items: [
-      { id: 'gtee-1', name: '', image: gtee1, vote: null },
-      { id: 'gtee-2', name: '', image: gtee2, vote: null },
-      { id: 'gtee-3', name: '', image: gtee3, vote: null },
-      { id: 'gtee-4', name: '', image: gtee4, vote: null },
-      { id: 'gtee-5', name: '', image: gtee5, vote: null },
-      { id: 'gtee-6', name: '', image: gtee6, vote: null },
-      { id: 'gtee-7', name: '', image: gtee7, vote: null },
-      { id: 'gtee-8', name: '', image: gtee8, vote: null },
-      { id: 'gtee-9', name: '', image: gtee9, vote: null },
-      { id: 'gtee-10', name: '', image: gtee10, vote: null },
-      { id: 'gtee-11', name: '', image: gtee11, vote: null },
-      { id: 'gtee-12', name: '', image: gtee12, vote: null },
-      { id: 'gtee-13', name: '', image: gtee13, vote: null },
-      { id: 'gtee-14', name: '', image: gtee14, vote: null },
-      { id: 'gtee-15', name: '', image: gtee15, vote: null },
-      { id: 'gtee-16', name: '', image: gtee16, vote: null },
-      { id: 'gtee-17', name: '', image: gtee17, vote: null },
-      { id: 'gtee-18', name: '', image: gtee18, vote: null },
-      { id: 'gtee-19', name: '', image: gtee19, vote: null },
-      { id: 'gtee-20', name: '', image: gtee20, vote: null },
-      { id: 'gtee-21', name: '', image: gtee21, vote: null },
-      { id: 'gtee-22', name: '', image: gtee22, vote: null },
+      { id: 'gtee-1', name: 'Sillypunter | Tool Black', image: gtee1, vote: null },
+      { id: 'gtee-2', name: 'The Souled Store | The Joker Gray', image: gtee2, vote: null },
+      { id: 'gtee-3', name: 'Sillypunter | Metallica Petrol Blue', image: gtee3, vote: null },
+      { id: 'gtee-4', name: 'Piece of Rock | Hukum White', image: gtee4, vote: null },
+      { id: 'gtee-5', name: 'Superdry | Brown', image: gtee5, vote: null },
+      { id: 'gtee-6', name: 'Piece of Rock | Coolie Black', image: gtee6, vote: null },
+      { id: 'gtee-7', name: 'VIT | Riviera Black', image: gtee7, vote: null },
+      { id: 'gtee-8', name: 'Ash | Red', image: gtee8, vote: null },
+      { id: 'gtee-9', name: 'VIT | Riviera Black', image: gtee9, vote: null },
+      { id: 'gtee-10', name: 'ACM | Black', image: gtee10, vote: null },
+      { id: 'gtee-11', name: 'Bewakoof | Actually... Black', image: gtee11, vote: null },
+      { id: 'gtee-12', name: 'ACM | Beige', image: gtee12, vote: null },
+      { id: 'gtee-13', name: "Kadai | I'll Pop You! Black", image: gtee13, vote: null },
+      { id: 'gtee-14', name: 'Red Wolf | Tom & Jerry Brown', image: gtee14, vote: null },
+      { id: 'gtee-15', name: 'Kadai | What Ra Sudeep! Red', image: gtee15, vote: null },
+      { id: 'gtee-16', name: 'IE(I) | Illumina Black', image: gtee16, vote: null },
+      { id: 'gtee-17', name: 'Punjabi Adda | Pancho Friday Hai Aaj Black', image: gtee17, vote: null },
+      { id: 'gtee-18', name: 'IE(I) | Black & Blue', image: gtee18, vote: null },
+      { id: 'gtee-19', name: 'Free Authority | Pink Floyd Black', image: gtee19, vote: null },
+      { id: 'gtee-20', name: 'DC | The Flash Red', image: gtee20, vote: null },
+      { id: 'gtee-21', name: 'Reserved | Freddie Mercury Black', image: gtee21, vote: null },
+      { id: 'gtee-22', name: 'H&M | Pussy Beige', image: gtee22, vote: null },
+      { id: 'gtee-23', name: 'Free Authority | Dragon Ball Z Beige', image: gtee23, vote: null },
+      { id: 'gtee-24', name: 'Yoode | Only Meow Meow Beige', image: gtee24, vote: null },
     ]
   },
   {
@@ -279,15 +284,17 @@ export const clothingCategories: ClothingCategory[] = [
     id: 'sweatshirts',
     name: 'SWEATSHIRTS',
     items: [
-      { id: 'sweatshirt-1', name: 'Westside | Olive Green', image: sweatshirt1, vote: null },
+      { id: 'sweatshirt-1', name: 'Marks & Spencer | Light Blue', image: sweatshirt1, vote: null },
       { id: 'sweatshirt-2', name: 'Marks & Spencer | Black & Gray', image: sweatshirt2, vote: null },
-      { id: 'sweatshirt-3', name: 'Marks & Spencer | Light Blue', image: sweatshirt3, vote: null },
+      { id: 'sweatshirt-3', name: 'Marks & Spencer | Brown', image: sweatshirt3, vote: null },
       { id: 'sweatshirt-4', name: 'H&M | Violet', image: sweatshirt4, vote: null },
-      { id: 'sweatshirt-5', name: 'The Souled Store | Orange Red', image: sweatshirt5, vote: null },
-      { id: 'sweatshirt-6', name: 'Wrogn | Black', image: sweatshirt6, vote: null },
-      { id: 'sweatshirt-7', name: 'H&M | White', image: sweatshirt7, vote: null },
-      { id: 'sweatshirt-8', name: 'Marks & Spencer | Brown', image: sweatshirt8, vote: null },
-      { id: 'sweatshirt-9', name: 'Zara | Maroon', image: sweatshirt9, vote: null },
+      { id: 'sweatshirt-5', name: 'Westside | Olive Green', image: sweatshirt5, vote: null },
+      { id: 'sweatshirt-6', name: 'H&M | White', image: sweatshirt6, vote: null },
+      { id: 'sweatshirt-7', name: 'The Souled Store | Orange Red', image: sweatshirt7, vote: null },
+      { id: 'sweatshirt-8', name: 'Superconcepts | Navy Blue Full Sleeve Ribbed', image: sweatshirt8, vote: null },
+      { id: 'sweatshirt-9', name: 'Wrogn | Black  ', image: sweatshirt9, vote: null },
+      { id: 'sweatshirt-10', name: 'Tyre | Black & Beige Full Sleeve Tyre', image: sweatshirt10, vote: null },
+      { id: 'sweatshirt-11', name: 'Zara | Maroon', image: sweatshirt11, vote: null },
     ]
   },
   {
